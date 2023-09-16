@@ -6,7 +6,7 @@ export default function StaticSiteGeneration(props) {
   return (
     <>
       {/* {data.map((e) => (
-        <h2 key={e.id}>{e.name}</h2>
+        <h2 key={e.id}>{e.title}</h2>
       ))} */}
     </>
   );
