@@ -1,20 +1,22 @@
 // static site generation
 import { API_URL } from '@/constants';
 
-export default function StaticSiteGeneration(props) {
+export default function SSG(props) {
   const data=props?.data;
   return (
-    <>
-      {data.map((e) => (
-        <h2 key={e.id}>{e.title}</h2>
+    <div className='content'>
+    <h1>SSG</h1>
+    <div className='list'>     
+       {data.map((e) => (
+          <button className='btn' key={e.id}>
+            {e.name}
+          </button>
       ))}
-    </>
+    </div>
+  </div>
   );
 }
 
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries.
 export async function getStaticProps() {
   const res = await fetch(API_URL);
   const data = await res.json();

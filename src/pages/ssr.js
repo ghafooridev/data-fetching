@@ -1,14 +1,19 @@
 // server side rendering
 import { API_URL } from '@/constants';
 
-export default function ServerSideRendered({ data }) {
+export default function SSR({ data }) {
   return (
-    <>
-      {data.map((e) => (
-        <h2 key={e.id}>{e.title}</h2>
+  <div className='content'>
+    <h1>SSR</h1>
+    <div className='list'>     
+       {data.map((e) => (
+          <button className='btn' key={e.id}>
+            {e.name}
+          </button>
       ))}
-    </>
-  );
+    </div>
+  </div>
+);
 }
 
 export async function getServerSideProps() {
@@ -17,7 +22,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      data, // will be passed to the page component as props
+      data
     },
   };
 }
