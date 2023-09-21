@@ -17,13 +17,15 @@ export default function SSG(props) {
   );
 }
 
+
 export async function getStaticProps() {
   const res = await fetch(API_URL);
   const data = await res.json();
 
   return {
     props: {
-      data, // will be passed to the page component as props
+      data,
+      fallback:false // will be passed to the page component as props
     },
   };
 }
